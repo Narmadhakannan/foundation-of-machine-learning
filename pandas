@@ -1,0 +1,1348 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "1c2291fb-3209-4d6f-a1e2-1b580593668c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0    10\n",
+      "1    20\n",
+      "2    30\n",
+      "3    40\n",
+      "4    50\n",
+      "dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "data = [10, 20, 30, 40, 50]\n",
+    "series = pd.Series (data)\n",
+    "print(series)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "bde3fa49-3638-48fd-9f64-3255cb7d4e45",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x    1\n",
+      "y    7\n",
+      "z    2\n",
+      "dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "a = [1, 7, 2]\n",
+    "myvar = pd.Series (a, index = [\"x\", \"y\", \"z\"])\n",
+    "print(myvar)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "adf25893-8b81-4454-8d15-092e2b13368f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "series>25= \n",
+      " 0    False\n",
+      "1    False\n",
+      "2     True\n",
+      "3     True\n",
+      "4     True\n",
+      "dtype: bool\n",
+      "Filtered Series:\n",
+      " 2    30\n",
+      "3    40\n",
+      "4    50\n",
+      "dtype: int64\n",
+      "\n",
+      "Series after Scalar Multiplication:\n",
+      " 0     20\n",
+      "1     40\n",
+      "2     60\n",
+      "3     80\n",
+      "4    100\n",
+      "dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "gt=series > 25\n",
+    "print(\"series>25= \\n\",gt)\n",
+    "series_filtered = series[series > 25]\n",
+    "print(\"Filtered Series:\\n\", series_filtered)\n",
+    "series_multiplied = series * 2\n",
+    "print(\"\\nSeries after Scalar Multiplication:\\n\", series_multiplied)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "eae2a466-6a10-4eac-9089-d332f819136e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "series= \n",
+      " 0    10\n",
+      "1    20\n",
+      "2    30\n",
+      "3    40\n",
+      "4    50\n",
+      "dtype: int64\n",
+      "\n",
+      "Series after Applying Square Root:\n",
+      " 0    3.162278\n",
+      "1    4.472136\n",
+      "2    5.477226\n",
+      "3    6.324555\n",
+      "4    7.071068\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "print(\"series= \\n\", series)\n",
+    "series_sqrt = np.sqrt(series)\n",
+    "print(\"\\nSeries after Applying Square Root:\\n\", series_sqrt)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "5867adf6-1481-477d-ad89-94b16cdc836b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   calories  duration\n",
+      "0       420        50\n",
+      "1       380        40\n",
+      "2       390        45\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "data = {\n",
+    "\"calories\": [420, 380, 390],\n",
+    "\"duration\": [50, 40, 45]}\n",
+    "df = pd.DataFrame(data)\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3b14e356-9a54-4912-893a-94358da3cd75",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    state  year  pop\n",
+      "0    Ohio  2000  1.5\n",
+      "1    Ohio  2001  1.7\n",
+      "2    Ohio  2002  3.6\n",
+      "3  Nevada  2001  2.4\n",
+      "4  Nevada  2002  2.9\n",
+      "5  Nevada  2003  3.2\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],\n",
+    "'year': [2000, 2001, 2002, 2001, 2002, 2003],\n",
+    "'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}\n",
+    "frame = pd.DataFrame (data)\n",
+    "print(frame)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "a03ba959-2c02-4b62-800e-17ea4e4d3a0c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   year   state  pop\n",
+      "0  2000    Ohio  1.5\n",
+      "1  2001    Ohio  1.7\n",
+      "2  2002    Ohio  3.6\n",
+      "3  2001  Nevada  2.4\n",
+      "4  2002  Nevada  2.9\n",
+      "5  2003  Nevada  3.2\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "frame = pd.DataFrame(data, columns=['year', 'state', 'pop']) \n",
+    "print(frame)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "65965e6d-4d31-4c1b-a126-65a394d0175e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year   state  pop debt\n",
+      "one    2000    Ohio  1.5  NaN\n",
+      "two    2001    Ohio  1.7  NaN\n",
+      "three  2002    Ohio  3.6  NaN\n",
+      "four   2001  Nevada  2.4  NaN\n",
+      "five   2002  Nevada  2.9  NaN\n",
+      "six    2003  Nevada  3.2  NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "frame2 = pd.DataFrame(data, columns=['year', 'state', 'pop', 'debt'], index=['one', 'two', 'three', 'four', 'five', 'six'])\n",
+    "print(frame2)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "dd9431bb-8ae6-4e0d-bb62-8f3eafa578da",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "one      2000\n",
+      "two      2001\n",
+      "three    2002\n",
+      "four     2001\n",
+      "five     2002\n",
+      "six      2003\n",
+      "Name: year, dtype: int64\n",
+      "\n",
+      " one        Ohio\n",
+      "two        Ohio\n",
+      "three      Ohio\n",
+      "four     Nevada\n",
+      "five     Nevada\n",
+      "six      Nevada\n",
+      "Name: state, dtype: object\n",
+      "\n",
+      " one        Ohio\n",
+      "two        Ohio\n",
+      "three      Ohio\n",
+      "four     Nevada\n",
+      "five     Nevada\n",
+      "six      Nevada\n",
+      "Name: state, dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(frame2 ['year'])\n",
+    "print(\"\\n\", frame2['state'])\n",
+    "print(\"\\n\", frame2.state)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "21454252-9b2b-4460-9415-b976f8fc8e7b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "year     2000\n",
+      "state    Ohio\n",
+      "pop       1.5\n",
+      "debt      NaN\n",
+      "Name: one, dtype: object\n",
+      "       year state  pop debt\n",
+      "two    2001  Ohio  1.7  NaN\n",
+      "three  2002  Ohio  3.6  NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(frame2. loc['one'])\n",
+    "print(frame2.loc[['two', 'three']])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "48d160f6-9325-4019-9bbe-28075551614b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year   state  pop  debt\n",
+      "one    2000    Ohio  1.5  12.4\n",
+      "two    2001    Ohio  1.7  12.4\n",
+      "three  2002    Ohio  3.6  12.4\n",
+      "four   2001  Nevada  2.4  12.4\n",
+      "five   2002  Nevada  2.9  12.4\n",
+      "six    2003  Nevada  3.2  12.4\n"
+     ]
+    }
+   ],
+   "source": [
+    "frame2 ['debt'] = 12.4\n",
+    "print(frame2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "dd22e26d-b8a3-481e-a257-fe2aea5b9f2f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year   state  pop  debt\n",
+      "one    2000    Ohio  1.5   0.0\n",
+      "two    2001    Ohio  1.7   1.0\n",
+      "three  2002    Ohio  3.6   2.0\n",
+      "four   2001  Nevada  2.4   3.0\n",
+      "five   2002  Nevada  2.9   4.0\n",
+      "six    2003  Nevada  3.2   5.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "frame2['debt'] = np.arange(6.)\n",
+    "print(frame2)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "e87d5417-d843-4550-8476-ee09b9a8f5dc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year   state  pop  debt\n",
+      "one    2000    Ohio  1.5   NaN\n",
+      "two    2001    Ohio  1.7  -1.2\n",
+      "three  2002    Ohio  3.6   NaN\n",
+      "four   2001  Nevada  2.4  -1.5\n",
+      "five   2002  Nevada  2.9  -1.7\n",
+      "six    2003  Nevada  3.2   NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "val = pd.Series([-1.2, -1.5, -1.7], index=['two', 'four', 'five'])\n",
+    "frame2 ['debt'] = val\n",
+    "print(frame2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "b31be28f-e5c8-4ad6-b78f-95ed055153b9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year state  pop  debt eastern\n",
+      "one    2000  Ohio  1.5   NaN    Ohio\n",
+      "two    2001  Ohio  1.7  -1.2    Ohio\n",
+      "three  2002  Ohio  3.6   NaN    Ohio\n",
+      "four   2001  Ohio  2.4  -1.5    Ohio\n",
+      "five   2002  Ohio  2.9  -1.7    Ohio\n",
+      "six    2003  Ohio  3.2   NaN    Ohio\n"
+     ]
+    }
+   ],
+   "source": [
+    "frame2['eastern'] = frame2.state = 'Ohio'\n",
+    "print(frame2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "be433446-7ea7-4f4e-9269-e3701efff003",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       year state  pop  debt\n",
+      "one    2000  Ohio  1.5   NaN\n",
+      "two    2001  Ohio  1.7  -1.2\n",
+      "three  2002  Ohio  3.6   NaN\n",
+      "four   2001  Ohio  2.4  -1.5\n",
+      "five   2002  Ohio  2.9  -1.7\n",
+      "six    2003  Ohio  3.2   NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "del frame2['eastern']\n",
+    "print(frame2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "530ce82e-eb07-423f-9c23-1e2af28661b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "        one   two three  four  five   six\n",
+      "year   2000  2001  2002  2001  2002  2003\n",
+      "state  Ohio  Ohio  Ohio  Ohio  Ohio  Ohio\n",
+      "pop     1.5   1.7   3.6   2.4   2.9   3.2\n",
+      "debt    NaN  -1.2   NaN  -1.5  -1.7   NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(frame2.T)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "e0c238f4-b160-4389-a5e6-58d531ddf71a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "d    4.5\n",
+      "b    7.2\n",
+      "a   -5.3\n",
+      "c    3.6\n",
+      "dtype: float64\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "a   -5.3\n",
+       "b    7.2\n",
+       "c    3.6\n",
+       "d    4.5\n",
+       "e    NaN\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "obj = pd.Series ([4.5, 7.2, -5.3, 3.6], index=['d', 'b', 'a', 'c'])\n",
+    "print(obj)\n",
+    "obj2 = obj.reindex(['a', 'b', 'c', 'd', 'e'])\n",
+    "obj2\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "0dbb202f-cd67-45df-ba79-44c2d82827ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0      blue\n",
+      "2    purple\n",
+      "4    yellow\n",
+      "dtype: object\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "0      blue\n",
+       "1      blue\n",
+       "2    purple\n",
+       "3    purple\n",
+       "4    yellow\n",
+       "5    yellow\n",
+       "dtype: object"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "obj3 = pd. Series(['blue', 'purple', 'yellow'], index=[0, 2, 4])\n",
+    "print(obj3)\n",
+    "obj4 = obj3.reindex (range(6), method='ffill') #forward-fills the\n",
+    "obj4\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "deb8a838-6d5d-453f-b55c-410dd08fd1e9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method 'ffill':\n",
+      "0      blue\n",
+      "1      blue\n",
+      "2    purple\n",
+      "3    purple\n",
+      "4    yellow\n",
+      "5    yellow\n",
+      "dtype: object\n",
+      "\n",
+      "Method 'bfill':\n",
+      "0      blue\n",
+      "1    purple\n",
+      "2    purple\n",
+      "3    yellow\n",
+      "4    yellow\n",
+      "5       NaN\n",
+      "dtype: object\n",
+      "\n",
+      "Fill value:\n",
+      "0      blue\n",
+      "1       red\n",
+      "2    purple\n",
+      "3       red\n",
+      "4    yellow\n",
+      "5       red\n",
+      "dtype: object\n",
+      "\n",
+      "Limit:\n",
+      "0    1.0\n",
+      "1    1.0\n",
+      "2    2.0\n",
+      "3    2.0\n",
+      "4    NaN\n",
+      "5    3.0\n",
+      "6    3.0\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "obj3 = pd. Series(['blue', 'purple', 'yellow'], index=[0, 2, 4])\n",
+    "obj4 = obj3.reindex(range(6), method='ffill')\n",
+    "print(\"Method 'ffill':\")\n",
+    "print(obj4)\n",
+    "#'bfill' or 'backfill': Fill values backward\n",
+    "obj5 = obj3.reindex (range(6), method='bfill')\n",
+    "print(\"\\nMethod 'bfill':\")\n",
+    "print (obj5)\n",
+    "# fill_value\n",
+    "# Fill missing values with a specific value\n",
+    "obj6 = obj3.reindex(range(6), fill_value='red')\n",
+    "print(\"\\nFill value:\")\n",
+    "print(obj6)\n",
+    "# limit\n",
+    "# Limit the number of consecutive filled values\n",
+    "obj7 = pd. Series([1, 2, 3], index=[0, 2, 5])\n",
+    "obj8 = obj7.reindex(range(7), method='ffill', limit=1)\n",
+    "print(\"\\nLimit:\")\n",
+    "print(obj8)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "55689ea1-a2d5-4a11-81ee-cefb5265b79c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a    0.0\n",
+      "b    1.0\n",
+      "d    3.0\n",
+      "e    4.0\n",
+      "dtype: float64\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "a    0.0\n",
+       "b    1.0\n",
+       "e    4.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "obj = pd.Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])\n",
+    "new_obj = obj.drop('c')\n",
+    "print(new_obj)\n",
+    "obj.drop(['d', 'c'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "8ba2b7d8-5ef6-423c-979b-929cb3aeec9b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "      <th>three</th>\n",
+       "      <th>four</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Ohio</th>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Dallas</th>\n",
+       "      <td>4</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "      <td>14</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>New York</th>\n",
+       "      <td>16</td>\n",
+       "      <td>17</td>\n",
+       "      <td>18</td>\n",
+       "      <td>19</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Austin</th>\n",
+       "      <td>20</td>\n",
+       "      <td>21</td>\n",
+       "      <td>22</td>\n",
+       "      <td>23</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          one  two  three  four\n",
+       "Ohio        0    1      2     3\n",
+       "Dallas      4    5      6     7\n",
+       "Boston      8    9     10    11\n",
+       "NJ         12   13     14    15\n",
+       "New York   16   17     18    19\n",
+       "Austin     20   21     22    23"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data = pd.DataFrame(np.arange (24).reshape((6, 4)),\n",
+    "index=['Ohio', 'Dallas', 'Boston', 'NJ', 'New York', 'Austin'],\n",
+    "columns=['one', 'two', 'three', 'four'])\n",
+    "data\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "853f300c-565f-4cad-9fa7-77c58ca2a6ff",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Ohio         1\n",
+       "Dallas       5\n",
+       "Boston       9\n",
+       "NJ          13\n",
+       "New York    17\n",
+       "Austin      21\n",
+       "Name: two, dtype: int64"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data['two']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "8862ce4d-0443-4974-9337-47961e8d6d4c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "      <th>three</th>\n",
+       "      <th>four</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Dallas</th>\n",
+       "      <td>4</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "      <td>14</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>New York</th>\n",
+       "      <td>16</td>\n",
+       "      <td>17</td>\n",
+       "      <td>18</td>\n",
+       "      <td>19</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          one  two  three  four\n",
+       "Dallas      4    5      6     7\n",
+       "Boston      8    9     10    11\n",
+       "NJ         12   13     14    15\n",
+       "New York   16   17     18    19"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data [1:5] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "c9cb20be-7b5f-4852-9234-437fdaf1d891",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "two      5\n",
+       "three    6\n",
+       "Name: Dallas, dtype: int64"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data. loc['Dallas', ['two', 'three']]\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "79fb9933-d7c9-4b67-aa64-48704e981235",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "np.int64(4)"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.at['Dallas', 'one']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "f5554ffe-3bf2-43c1-9b2a-8a76fa5a618e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>New York</th>\n",
+       "      <td>16</td>\n",
+       "      <td>17</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          one  two\n",
+       "Boston      8    9\n",
+       "NJ         12   13\n",
+       "New York   16   17"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.iloc [2:5, 0:2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "aac5bab9-a370-4fa2-bb00-441f9d7bdfb3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "      <th>three</th>\n",
+       "      <th>four</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Dallas</th>\n",
+       "      <td>4</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "      <td>14</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "        one  two  three  four\n",
+       "Dallas    4    5      6     7\n",
+       "Boston    8    9     10    11\n",
+       "NJ       12   13     14    15"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.iloc [1:4, :]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "5492e946-1e0c-44cf-890b-6ee489d9859b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ohio        False\n",
+      "Dallas       True\n",
+      "Boston       True\n",
+      "NJ           True\n",
+      "New York     True\n",
+      "Austin       True\n",
+      "Name: three, dtype: bool\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "      <th>three</th>\n",
+       "      <th>four</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Dallas</th>\n",
+       "      <td>4</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "      <td>14</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>New York</th>\n",
+       "      <td>16</td>\n",
+       "      <td>17</td>\n",
+       "      <td>18</td>\n",
+       "      <td>19</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Austin</th>\n",
+       "      <td>20</td>\n",
+       "      <td>21</td>\n",
+       "      <td>22</td>\n",
+       "      <td>23</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          one  two  three  four\n",
+       "Dallas      4    5      6     7\n",
+       "Boston      8    9     10    11\n",
+       "NJ         12   13     14    15\n",
+       "New York   16   17     18    19\n",
+       "Austin     20   21     22    23"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "print(data.three > 5)\n",
+    "data [data.three > 5]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "3d6817c2-d4ef-4be3-bf45-52d4f11e8dba",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>one</th>\n",
+       "      <th>two</th>\n",
+       "      <th>three</th>\n",
+       "      <th>four</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Ohio</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Dallas</th>\n",
+       "      <td>0</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Boston</th>\n",
+       "      <td>8</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>NJ</th>\n",
+       "      <td>12</td>\n",
+       "      <td>13</td>\n",
+       "      <td>14</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>New York</th>\n",
+       "      <td>16</td>\n",
+       "      <td>17</td>\n",
+       "      <td>18</td>\n",
+       "      <td>19</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Austin</th>\n",
+       "      <td>20</td>\n",
+       "      <td>21</td>\n",
+       "      <td>22</td>\n",
+       "      <td>23</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          one  two  three  four\n",
+       "Ohio        0    0      0     0\n",
+       "Dallas      0    5      6     7\n",
+       "Boston      8    9     10    11\n",
+       "NJ         12   13     14    15\n",
+       "New York   16   17     18    19\n",
+       "Austin     20   21     22    23"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data < 5\n",
+    "data [data < 5] = 0\n",
+    "data\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "9adaa7a6-00d5-4e94-89f6-dc3e58458fac",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "   A  B\n",
+      "0  1  4\n",
+      "1  2  5\n",
+      "2  3  6\n",
+      "   B   C\n",
+      "1  7  10\n",
+      "2  8  11\n",
+      "3  9  12\n",
+      "Result of df3 + df4 with alignment:\n",
+      "     A     B   C\n",
+      "0 NaN   NaN NaN\n",
+      "1 NaN  12.0 NaN\n",
+      "2 NaN  14.0 NaN\n",
+      "3 NaN   NaN NaN\n"
+     ]
+    }
+   ],
+   "source": [
+    "df3 = pd.DataFrame({'A': [1, 2, 3],'B': [4, 5, 6]}, index=[0, 1, 2])\n",
+    "df4 = pd.DataFrame({'B': [7, 8, 9], 'C': [10, 11, 12]}, index=[1, 2, 3])\n",
+    "print(df3)\n",
+    "print(df4)\n",
+    "result = df3 + df4\n",
+    "print(\"Result of df3 + df4 with alignment:\\n\", result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "4b7deabd-1053-4046-99c8-e76690317641",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Result of df3.add(df4) with fill value=0:\n",
+      "      A     B     C\n",
+      "0  1.0   4.0   NaN\n",
+      "1  2.0  12.0  10.0\n",
+      "2  3.0  14.0  11.0\n",
+      "3  NaN   9.0  12.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "result_add = df3.add(df4, fill_value=0)\n",
+    "print(\"\\nResult of df3.add(df4) with fill value=0:\\n\", result_add)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8413deb7-ffeb-431d-9194-58c1163ea4d8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0d04bda9-1d8c-493f-a3be-8441c9c3023b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
